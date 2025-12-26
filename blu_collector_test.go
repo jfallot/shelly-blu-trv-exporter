@@ -21,7 +21,7 @@ func TestBluCollectorMetrics(t *testing.T) {
 	defer srv.Close()
 
 	addr := strings.TrimPrefix(srv.URL, "http://")
-	cfg := Config{Address: addr, Username: "u", Password: "p", PollRate: 1, Timeout: 2}
+	cfg := Config{Address: addr, Username: "u", Password: "p", Timeout: 2}
 
 	reg := prometheus.NewRegistry()
 	reg.MustRegister(NewBluCollector(cfg))

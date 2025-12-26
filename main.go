@@ -19,7 +19,6 @@ type Config struct {
 	Address  string `yaml:"address"`
 	Username string `yaml:"username"`
 	Password string `yaml:"password"`
-	PollRate int    `yaml:"poll_rate_seconds"`
 	Timeout  int    `yaml:"timeout_seconds"`
 }
 
@@ -44,15 +43,11 @@ func debugBluHandler(config Config) http.HandlerFunc {
 
 func main() {
 	// Read configuration
-	config, err := readConfig("config.yaml")
+	config, err := readConfig("/etc/shelly-blu-trv-exporter/config.yaml")
 	if err != nil {
 		log.Fatalf("Error reading configuration: %v", err)
 	}
 
-	// Set default values if not specified
-	if config.PollRate == 0 {
-		config.PollRate = 10 // Default 10 seconds
-	}
 	if config.Timeout == 0 {
 		config.Timeout = 5 // Default 5 seconds
 	}
@@ -61,6 +56,8 @@ func main() {
 	if config.Address == "" || config.Username == "" || config.Password == "" {
 		log.Fatal("Missing required configuration fields")
 	}
+
+	log.Println("Monitoring Shelly Blu TRV at", config.Address)
 
 	// Register Blu collector
 	bluCollector := NewBluCollector(config)

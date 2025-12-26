@@ -18,7 +18,7 @@ func TestDebugBluHandler(t *testing.T) {
 	defer srv.Close()
 
 	addr := strings.TrimPrefix(srv.URL, "http://")
-	cfg := Config{Address: addr, Username: "u", Password: "p", PollRate: 1, Timeout: 2}
+	cfg := Config{Address: addr, Username: "u", Password: "p", Timeout: 2}
 
 	h := debugBluHandler(cfg)
 	req := httptest.NewRequest("GET", "/debug/blu", nil)
