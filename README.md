@@ -39,7 +39,7 @@ go run main.go
 docker build -t shelly-blu-trv-exporter .
 
 # Run container
-docker run -v "./config.yaml:/config.yaml" -p 8080:8080 shelly-blu-trv-exporter
+docker run -v "./config.yaml:/etc/shelly-blu-trv-exporter/config.yaml" -p 8080:8080 shelly-blu-trv-exporter
 ```
 
 ## 📝 Configuration
@@ -50,13 +50,18 @@ Create a `config.yaml` with the following structure:
 address: "192.168.1.1"           # IP or hostname of the switch
 username: "admin"                # Web interface username
 password: "password"             # Web interface password
-poll_rate_seconds: 10            # Metrics polling interval
 timeout_seconds: 5               # Request timeout
 ```
 
 ## 📊 Exposed Metrics
-
-
+blutrv_battery
+blutrv_compone
+blutrv_current_c
+blutrv_flags
+blutrv_identity
+blutrv_info
+blutrv_rssi
+blutrv_target_c
 
 ## 🤝 Contributing
 
@@ -65,17 +70,6 @@ timeout_seconds: 5               # Request timeout
 3. Commit your changes
 4. Push to the branch
 5. Create a new Pull Request
-
-## 🚨 Limitations
-
-- Requires web interface access to the switch
-- Polling-based metrics collection
-- Authentication via web interface credentials
-- No TLS
-
-## 📄 License
-
-MIT License, see [LICENSE](LICENSE) file.
 
 ## 🐛 Issues
 
