@@ -57,7 +57,7 @@ func (c *BluCollector) Collect(ch chan<- prometheus.Metric) {
 	bluMap, err := fetchComponentsMap(c.config)
 	if err != nil {
 		// still attempt to export collected values if any
-		log.Fatalf("Error collecting stats: %v", err)
+		log.Printf("Error collecting stats: %v", err)
 		return
 	}
 
