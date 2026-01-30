@@ -1,6 +1,6 @@
-# 🔌 Cheap Switch Exporter
+# 🔌 Shelly BLU TRV Exporter
 
-Prometheus Exporter for low-cost network switches without SNMP support
+Prometheus Exporter for Shelly TRV devices
 
 ## 📖 Overview
 
