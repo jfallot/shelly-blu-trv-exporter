@@ -25,11 +25,11 @@ jobs:
         env:
           GOOS: ${{ matrix.goos }}
           GOARCH: ${{ matrix.goarch }}
-        run: go build -o "livebox-exporter-${GOOS}-${GOARCH}" main.go
+        run: go build -o "livebox-exporter-${GOOS}-${GOARCH}"
       - uses: actions/upload-artifact@v4
         with:
-          name: livebox-exporter-${{ matrix.goos }}-${{ matrix.goarch }}
-          path: livebox-exporter-${{ matrix.goos }}-${{ matrix.goarch }}
+          name: ${{ github.repository }}-${{ matrix.goos }}-${{ matrix.goarch }}
+          path: ${{ github.repository }}-${{ matrix.goos }}-${{ matrix.goarch }}
           retention-days: 1
   upload:
     runs-on: ubuntu-latest
