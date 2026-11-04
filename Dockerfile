@@ -1,5 +1,5 @@
 # Use a specific alpine version for better reproducibility
-FROM golang:1.23.5-alpine3.21 AS build
+FROM golang:1.25.5-alpine3.21 AS build
 
 # Set metadata and maintainer
 LABEL org.opencontainers.image.source="https://github.com/jfallot/shelly-blu-trv-exporter"
