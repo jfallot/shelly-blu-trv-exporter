@@ -27,7 +27,7 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
     -o /bin/shelly-blu-trv-exporter
 
 # Final stage with alpine
-FROM alpine:3.21
+FROM alpine:3.24
 
 # Create non-root user
 RUN adduser -D -u 1000 appuser
